@@ -2,6 +2,8 @@ const Strategy = require('passport-http-bearer').Strategy;
 const request = require('superagent');
 const env = require('var');
 
+console.log('\n*** OAuth middleware ***\n');
+
 /**
  * Bearer Strategy
  *
