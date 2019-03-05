@@ -37,11 +37,11 @@ let fhirServerConfig = {
 		//
 		// if you use this strategy, you need to add the corresponding env vars to docker-compose
 		//
-		// strategy: {
-		// 	name: 'bearer',
-		// 	useSession: false,
-		// 	service: './src/strategies/bearer.strategy.js'
-		// },
+		strategy: {
+			name: 'basic',
+			useSession: false,
+			service: './src/strategies/basic.strategy.js'
+		},
 	},
 	server: {
 		// support various ENV that uses PORT vs SERVER_PORT
