@@ -8,9 +8,11 @@ const env = require('var');
  */
 let mongoConfig = {
 	connection: `mongodb://${env.MONGO_HOSTNAME}`,
+	//connection: `mongodb://dbuser1:dbuser1@ds161335.mlab.com:61335/fhirdb`,
 	db_name: env.MONGO_DB_NAME,
 	options: {
-		auto_reconnect: true
+		auto_reconnect: true,
+		useNewUrlParser: true
 	}
 };
 

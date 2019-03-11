@@ -3,6 +3,9 @@ const request = require('superagent');
 const env = require('var');
 
 console.log('\n*** OAuth middleware ***\n');
+console.log('INTROSPECTION_URL : ', env.INTROSPECTION_URL);
+console.log('CLIENT_ID : ', env.CLIENT_ID);
+console.log('CLIENT_SECRET : ', env.CLIENT_SECRET);
 
 /**
  * Bearer Strategy
@@ -17,7 +20,7 @@ module.exports.strategy = new Strategy(
 		if (!env.INTROSPECTION_URL) {
 			return done(new Error('Invalid introspection endpoint.'));
 		}
-
+		console.log('\n************************************\n');
 		request
 		.post(env.INTROSPECTION_URL)
 		.set('content-type', 'application/x-www-form-urlencoded')
@@ -39,4 +42,22 @@ module.exports.strategy = new Strategy(
 			return done(new Error('Invalid token'));
 		});
 	}
+);
+
+const BearerStrategy = require('passport-http-bearer');
+module.exports.strategy = new BearerStrategy(
+		function(token, done) {
+			if(token === 'testbearertoken') {
+				console.info('authorized');
+				return done(null, {username: 'user', password: 'pass'});
+			} else {
+				console.info('invalid token');
+				return done(new Error('Invalid token'));
+			}
+			//User.findOne({ token: token }, function (err, user) {
+			//	if (err) { return done(err); }
+			//	if (!user) { return done(null, false); }
+			//	return done(null, user, { scope: 'all' });
+			//});
+		}
 );

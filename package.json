@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@asymmetrik/node-fhir-server-core": "git+https://github.com/Asymmetrik/node-fhir-server-core.git",
+    "@asymmetrik/sof-strategy": "^1.0.3",
     "moment-timezone": "^0.5.14",
     "mongo": "^0.1.0",
     "passport-http": "^0.3.0",
