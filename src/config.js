@@ -39,8 +39,8 @@ let fhirServerConfig = {
 		// if you use this strategy, you need to add the corresponding env vars to docker-compose
 		//
 		 strategy: {
-		 	name: 'bearer',
-		 	useSession: false,
+		 	//name: 'bearer',
+		 	//useSession: false,
 			service: './src/auth/passport_strategy'
 		 	//service: './src/strategies/bearer.strategy.js'
 		 }

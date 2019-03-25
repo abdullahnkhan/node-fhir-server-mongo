@@ -186,4 +186,4 @@ OpenIDConnectStrategy.prototype.authenticate = function authenticate(req, option
   }
 };
 
-module.exports = OpenIDConnectStrategy;
+module.exports.strategy = OpenIDConnectStrategy;
